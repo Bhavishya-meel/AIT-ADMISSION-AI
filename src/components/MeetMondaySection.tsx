@@ -33,21 +33,21 @@ export const MeetMondaySection: React.FC<MeetMondaySectionProps> = ({ onOpenChat
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           {/* Left Column: Vision & Philosophy */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/95 border border-blue-200 shadow-xs backdrop-blur-md">
               <Sparkles className="w-3.5 h-3.5 text-[#0071E3]" />
-              <span className="text-[12px] font-semibold text-[#0071E3] uppercase tracking-wider">
+              <span className="text-[12px] font-bold text-[#005FCC] uppercase tracking-wider">
                 Apple-Grade AI Assistant
               </span>
             </div>
 
-            <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-[#1D1D1F] leading-tight">
+            <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-[#0F172A] leading-tight drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]">
               Meet Monday. <br />
-              <span className="text-[#6E6E73] font-normal">
+              <span className="text-slate-800 font-semibold">
                 Your dedicated AIT admissions and campus AI.
               </span>
             </h2>
 
-            <p className="text-base text-[#6E6E73] leading-relaxed">
+            <p className="text-base text-slate-800 font-medium leading-relaxed">
               Navigating engineering admissions, branch selection, and campus transitions can feel overwhelming. Monday combines live ChatGPT intelligence with institutional precision—transforming hundred-page prospectuses into instant, personalized answers.
             </p>
 
@@ -68,20 +68,20 @@ export const MeetMondaySection: React.FC<MeetMondaySectionProps> = ({ onOpenChat
             {capabilities.map((cap, idx) => (
               <div
                 key={idx}
-                className="bg-white/85 backdrop-blur-md rounded-2xl p-6 sm:p-7 border border-black/[0.07] hover:border-black/[0.14] transition-all duration-200 shadow-2xs hover:shadow-md flex flex-col sm:flex-row sm:items-center justify-between gap-4 group"
+                className="bg-white/85 backdrop-blur-md rounded-2xl p-6 sm:p-7 border border-black/[0.08] hover:border-black/[0.14] transition-all duration-200 shadow-2xs hover:shadow-md flex flex-col sm:flex-row sm:items-center justify-between gap-4 group"
               >
                 <div className="space-y-1.5 flex-1">
-                  <h3 className="text-lg font-bold text-[#1D1D1F] group-hover:text-[#0071E3] transition-colors">
+                  <h3 className="text-lg font-bold text-slate-950 group-hover:text-[#0071E3] transition-colors">
                     {cap.title}
                   </h3>
-                  <p className="text-xs sm:text-[13px] text-[#6E6E73] leading-relaxed">
+                  <p className="text-xs sm:text-[13px] text-slate-800 font-normal leading-relaxed">
                     {cap.description}
                   </p>
                 </div>
 
                 <button
                   onClick={() => onOpenChat(cap.prompt)}
-                  className="flex-shrink-0 self-start sm:self-center inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-semibold bg-[#F5F5F7] hover:bg-blue-50 text-[#1D1D1F] hover:text-[#0071E3] transition-colors"
+                  className="flex-shrink-0 self-start sm:self-center inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-bold bg-slate-100 hover:bg-blue-50 text-slate-900 hover:text-[#0071E3] border border-slate-200 transition-colors"
                 >
                   <span>Ask Monday</span>
                   <ArrowRight className="w-3.5 h-3.5" />

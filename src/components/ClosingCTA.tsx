@@ -9,10 +9,10 @@ export const ClosingCTA: React.FC<ClosingCTAProps> = ({ onOpenChat }) => {
   return (
     <section className="py-20 md:py-28 bg-transparent border-b border-black/[0.06] relative overflow-hidden text-center">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-[#1D1D1F] leading-tight">
+        <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-[#0F172A] leading-tight drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]">
           Every big journey begins with clarity.
         </h2>
-        <p className="mt-4 text-base sm:text-lg text-[#6E6E73] max-w-xl mx-auto leading-relaxed">
+        <p className="mt-4 text-base sm:text-lg text-slate-800 font-medium max-w-xl mx-auto leading-relaxed">
           Get confident, verified guidance on eligibility, entrance criteria, and required certificates for Army Institute of Technology, Pune.
         </p>
 
@@ -28,7 +28,7 @@ export const ClosingCTA: React.FC<ClosingCTAProps> = ({ onOpenChat }) => {
           </button>
         </div>
 
-        <p className="mt-4 text-xs text-[#86868B]">
+        <p className="mt-4 text-xs text-slate-800 font-bold">
           Instant responses · Grounded in official prospectus rules
         </p>
       </div>

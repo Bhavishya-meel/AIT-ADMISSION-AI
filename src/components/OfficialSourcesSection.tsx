@@ -8,16 +8,16 @@ export const OfficialSourcesSection: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-14 md:mb-18">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 mb-3">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/95 border border-blue-200 shadow-xs mb-3 backdrop-blur-md">
             <BookOpen className="w-3.5 h-3.5 text-[#0071E3]" />
-            <span className="text-[12px] font-semibold text-[#0071E3] uppercase tracking-wider">
+            <span className="text-[12px] font-bold text-[#005FCC] uppercase tracking-wider">
               Verification & Transparency
             </span>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-[#1D1D1F]">
+          <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-[#0F172A] drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]">
             Official Resources & Verification Center
           </h2>
-          <p className="mt-4 text-base sm:text-lg text-[#6E6E73] leading-relaxed">
+          <p className="mt-4 text-base sm:text-lg text-slate-800 font-medium leading-relaxed max-w-2xl mx-auto">
             All guidance provided by Monday is strictly grounded in official publications from the Army Institute of Technology, Pune, and the National Testing Agency.
           </p>
         </div>
@@ -27,38 +27,38 @@ export const OfficialSourcesSection: React.FC = () => {
           {OFFICIAL_SOURCES.map((source) => (
             <div
               key={source.id}
-              className="bg-white/85 backdrop-blur-md rounded-3xl p-6 sm:p-7 border border-black/[0.06] hover:border-black/[0.12] transition-all duration-300 flex flex-col justify-between group shadow-2xs hover:shadow-md"
+              className="bg-white/85 backdrop-blur-md rounded-3xl p-6 sm:p-7 border border-black/[0.08] hover:border-black/[0.14] transition-all duration-300 flex flex-col justify-between group shadow-2xs hover:shadow-md"
             >
               <div>
                 {/* Badge & Year Status */}
                 <div className="flex items-center justify-between gap-2 mb-3">
-                  <span className="px-2.5 py-1 rounded-md text-[11px] font-semibold uppercase tracking-wider bg-white text-[#1D1D1F] border border-black/[0.05]">
+                  <span className="px-2.5 py-1 rounded-md text-[11px] font-bold uppercase tracking-wider bg-white text-slate-900 border border-slate-200">
                     {source.badgeLabel}
                   </span>
                   <span
-                    className={`text-[11px] font-semibold px-2 py-0.5 rounded ${
+                    className={`text-[11px] font-bold px-2 py-0.5 rounded ${
                       source.isHistorical
-                        ? 'bg-amber-100 text-amber-800'
-                        : 'bg-emerald-100 text-emerald-800'
+                        ? 'bg-amber-100 text-amber-900'
+                        : 'bg-emerald-100 text-emerald-900'
                     }`}
                   >
                     {source.admissionYear}
                   </span>
                 </div>
 
-                <h3 className="text-lg font-bold text-[#1D1D1F] group-hover:text-[#0071E3] transition-colors leading-snug">
+                <h3 className="text-lg font-bold text-slate-950 group-hover:text-[#0071E3] transition-colors leading-snug">
                   {source.title}
                 </h3>
 
-                <p className="text-xs sm:text-[13px] text-[#6E6E73] mt-2.5 leading-relaxed">
+                <p className="text-xs sm:text-[13px] text-slate-800 font-normal mt-2.5 leading-relaxed">
                   {source.description}
                 </p>
               </div>
 
               {/* Card Footer */}
               <div className="mt-6 pt-4 border-t border-black/[0.06] flex items-center justify-between">
-                <div className="flex items-center gap-1.5 text-[11px] text-[#86868B]">
-                  <Clock className="w-3 h-3" />
+                <div className="flex items-center gap-1.5 text-[11px] text-slate-700 font-semibold">
+                  <Clock className="w-3 h-3 text-[#0071E3]" />
                   <span>Verified: {source.lastVerified}</span>
                 </div>
 

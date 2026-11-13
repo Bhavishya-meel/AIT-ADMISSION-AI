@@ -37,16 +37,16 @@ export const BranchExplorer: React.FC<BranchExplorerProps> = ({ onAskMonday, onA
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 mb-3">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/95 border border-blue-200 shadow-xs mb-3 backdrop-blur-md">
             <GraduationCap className="w-3.5 h-3.5 text-[#0071E3]" />
-            <span className="text-[12px] font-semibold text-[#0071E3] uppercase tracking-wider">
+            <span className="text-[12px] font-bold text-[#005FCC] uppercase tracking-wider">
               Autonomous Undergraduate Curriculum
             </span>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-[#1D1D1F]">
+          <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-[#0F172A] drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]">
             Find Your Engineering Path
           </h2>
-          <p className="mt-4 text-base sm:text-lg text-[#6E6E73] leading-relaxed">
+          <p className="mt-4 text-base sm:text-lg text-slate-800 font-medium leading-relaxed max-w-2xl mx-auto">
             Explore AIT Pune’s five verified undergraduate branches. From machine intelligence and cloud computing to silicon design and autonomous robotics.
           </p>
 
@@ -63,8 +63,8 @@ export const BranchExplorer: React.FC<BranchExplorerProps> = ({ onAskMonday, onA
                 onClick={() => setFilter(btn.id as any)}
                 className={`px-4 py-2 rounded-full text-xs font-semibold transition-all ${
                   filter === btn.id
-                    ? 'bg-[#1D1D1F] text-white shadow-sm'
-                    : 'bg-[#F5F5F7] text-[#6E6E73] hover:text-[#1D1D1F] hover:bg-slate-200/70'
+                    ? 'bg-slate-950 text-white shadow-sm'
+                    : 'bg-white/95 text-slate-800 hover:text-black hover:bg-slate-100 border border-slate-300'
                 }`}
               >
                 {btn.label}
@@ -78,7 +78,7 @@ export const BranchExplorer: React.FC<BranchExplorerProps> = ({ onAskMonday, onA
           {filteredBranches.map((branch) => (
             <div
               key={branch.id}
-              className="bg-white/80 backdrop-blur-md rounded-3xl p-6 sm:p-7 border border-black/[0.06] hover:border-black/[0.12] transition-all duration-300 hover:shadow-lg hover:shadow-black/[0.03] flex flex-col justify-between group"
+              className="bg-white/85 backdrop-blur-md rounded-3xl p-6 sm:p-7 border border-black/[0.08] hover:border-black/[0.14] transition-all duration-300 hover:shadow-lg hover:shadow-black/[0.04] flex flex-col justify-between group"
             >
               <div>
                 {/* Branch Code & Badge Header */}
@@ -86,32 +86,32 @@ export const BranchExplorer: React.FC<BranchExplorerProps> = ({ onAskMonday, onA
                   <span className="px-3 py-1 rounded-full text-xs font-bold bg-[#0071E3]/10 text-[#0071E3] border border-[#0071E3]/20">
                     {branch.code}
                   </span>
-                  <span className="text-[11px] font-medium text-[#86868B]">
+                  <span className="text-[11px] font-bold text-slate-700">
                     B.E. Autonomous
                   </span>
                 </div>
 
-                <h3 className="text-xl font-bold text-[#1D1D1F] group-hover:text-[#0071E3] transition-colors leading-snug">
+                <h3 className="text-xl font-bold text-slate-950 group-hover:text-[#0071E3] transition-colors leading-snug">
                   {branch.name}
                 </h3>
-                <p className="text-xs font-medium text-[#0071E3] mt-1">
+                <p className="text-xs font-bold text-blue-700 mt-1">
                   {branch.tagline}
                 </p>
 
-                <p className="text-xs sm:text-[13px] text-[#6E6E73] mt-3 line-clamp-3 leading-relaxed">
+                <p className="text-xs sm:text-[13px] text-slate-800 font-normal mt-3 line-clamp-3 leading-relaxed">
                   {branch.overview}
                 </p>
 
                 {/* Key Focus Tags */}
                 <div className="mt-4 pt-4 border-t border-black/[0.05]">
-                  <p className="text-[11px] font-semibold text-[#86868B] uppercase tracking-wider mb-2">
+                  <p className="text-[11px] font-bold text-slate-900 uppercase tracking-wider mb-2">
                     Key Curriculum Pillars
                   </p>
                   <div className="flex flex-wrap gap-1.5">
                     {branch.focusAreas.slice(0, 4).map((tech, tIdx) => (
                       <span
                         key={tIdx}
-                        className="text-[11px] px-2.5 py-1 rounded-md bg-white text-[#1D1D1F] border border-black/[0.05] font-medium"
+                        className="text-[11px] px-2.5 py-1 rounded-md bg-white text-slate-900 border border-slate-200 font-semibold"
                       >
                         {tech}
                       </span>
@@ -122,7 +122,7 @@ export const BranchExplorer: React.FC<BranchExplorerProps> = ({ onAskMonday, onA
 
               {/* Card Footer Actions */}
               <div className="mt-6 pt-4 border-t border-black/[0.05] flex items-center justify-between">
-                <span className="text-[11px] text-[#86868B] truncate max-w-[170px]">
+                <span className="text-[11px] text-slate-700 font-medium truncate max-w-[170px]">
                   {branch.intakeNote}
                 </span>
 

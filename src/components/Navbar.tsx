@@ -64,7 +64,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenChat, activeSection, onNav
                   Pune
                 </span>
               </div>
-              <p className="text-[11px] text-[#6E6E73] hidden sm:block tracking-normal">
+              <p className="text-[11px] text-slate-800 font-semibold hidden sm:block tracking-normal">
                 Army Institute of Technology · Autonomous AY 25–26
               </p>
             </div>
@@ -78,10 +78,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenChat, activeSection, onNav
                 <button
                   key={item.id}
                   onClick={() => handleNavClick(item.id)}
-                  className={`px-3 py-1.5 rounded-full text-[13px] font-medium transition-all duration-200 ${
+                  className={`px-3 py-1.5 rounded-full text-[13px] font-bold transition-all duration-200 ${
                     isActive
-                      ? 'bg-black/[0.06] text-[#1D1D1F]'
-                      : 'text-[#6E6E73] hover:text-[#1D1D1F] hover:bg-black/[0.03]'
+                      ? 'bg-black/[0.08] text-slate-950'
+                      : 'text-slate-800 hover:text-black hover:bg-black/[0.04]'
                   }`}
                 >
                   {item.label}

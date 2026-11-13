@@ -41,17 +41,17 @@ export const DocumentChecklist: React.FC<DocumentChecklistProps> = ({ onAskMonda
             <span className="p-1.5 rounded-lg bg-blue-50 text-[#0071E3]">
               <FileCheck className="w-4 h-4" />
             </span>
-            <h3 className="text-xl font-bold text-[#1D1D1F]">
+            <h3 className="text-xl font-extrabold text-slate-950">
               Interactive Document Checklist
             </h3>
           </div>
-          <p className="text-xs sm:text-sm text-[#6E6E73] mt-1">
+          <p className="text-xs sm:text-sm text-slate-800 font-medium mt-1">
             Track and verify the documents required for AIT online registration and physical counseling.
           </p>
         </div>
 
         {/* Filter Pills */}
-        <div className="flex items-center gap-1.5 bg-[#F5F5F7] p-1 rounded-xl self-start sm:self-auto overflow-x-auto max-w-full">
+        <div className="flex items-center gap-1.5 bg-[#F5F5F7] p-1 rounded-xl self-start sm:self-auto overflow-x-auto max-w-full border border-slate-200/60">
           {[
             { id: 'all', label: 'All Items' },
             { id: 'serving', label: 'Serving Army' },
@@ -61,10 +61,10 @@ export const DocumentChecklist: React.FC<DocumentChecklistProps> = ({ onAskMonda
             <button
               key={tab.id}
               onClick={() => setSelectedFilter(tab.id as any)}
-              className={`px-3 py-1 rounded-lg text-xs font-medium transition-all ${
+              className={`px-3 py-1 rounded-lg text-xs font-semibold transition-all ${
                 selectedFilter === tab.id
-                  ? 'bg-white text-[#1D1D1F] shadow-xs'
-                  : 'text-[#6E6E73] hover:text-[#1D1D1F]'
+                  ? 'bg-white text-slate-950 shadow-xs'
+                  : 'text-slate-700 hover:text-slate-950'
               }`}
             >
               {tab.label}
@@ -75,13 +75,13 @@ export const DocumentChecklist: React.FC<DocumentChecklistProps> = ({ onAskMonda
 
       {/* Progress Bar Display */}
       <div className="my-6 p-4 rounded-2xl bg-[#F5F5F7] border border-black/[0.04]">
-        <div className="flex items-center justify-between text-xs font-semibold mb-2">
-          <span className="text-[#1D1D1F]">
+        <div className="flex items-center justify-between text-xs font-bold mb-2">
+          <span className="text-slate-950">
             Prepared Documents: {completedFiltered} of {totalFiltered} ({progressPercent}%)
           </span>
           <button
             onClick={resetChecklist}
-            className="text-[11px] text-[#86868B] hover:text-[#1D1D1F] flex items-center gap-1 transition-colors"
+            className="text-[11px] text-slate-700 hover:text-slate-950 flex items-center gap-1 font-semibold transition-colors"
           >
             <RotateCcw className="w-3 h-3" /> Reset
           </button>
@@ -112,26 +112,26 @@ export const DocumentChecklist: React.FC<DocumentChecklistProps> = ({ onAskMonda
                 {isChecked ? (
                   <CheckSquare className="w-5 h-5 text-[#0071E3]" />
                 ) : (
-                  <Square className="w-5 h-5 text-[#86868B]" />
+                  <Square className="w-5 h-5 text-slate-500" />
                 )}
               </div>
               <div className="flex-1 min-w-0">
                 <div className="flex items-center justify-between gap-2">
                   <h4
-                    className={`text-sm font-semibold leading-tight ${
-                      isChecked ? 'text-[#0071E3]' : 'text-[#1D1D1F]'
+                    className={`text-sm font-bold leading-tight ${
+                      isChecked ? 'text-[#0071E3]' : 'text-slate-950'
                     }`}
                   >
                     {item.name}
                   </h4>
-                  <span className="px-1.5 py-0.5 rounded text-[10px] font-medium uppercase tracking-wider bg-slate-100 text-[#6E6E73] flex-shrink-0">
+                  <span className="px-1.5 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-slate-100 text-slate-800 border border-slate-200 flex-shrink-0">
                     {item.category}
                   </span>
                 </div>
-                <p className="text-xs text-[#6E6E73] mt-1 leading-normal">
+                <p className="text-xs text-slate-800 font-normal mt-1 leading-normal">
                   {item.description}
                 </p>
-                <p className="text-[11px] text-[#86868B] mt-1.5 italic">
+                <p className="text-[11px] text-slate-700 font-medium mt-1.5 italic">
                   Note: {item.officialNotes}
                 </p>
               </div>
@@ -142,10 +142,10 @@ export const DocumentChecklist: React.FC<DocumentChecklistProps> = ({ onAskMonda
 
       {/* Advisory Callout */}
       <div className="mt-6 pt-5 border-t border-black/[0.06] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-        <div className="flex items-start gap-2.5 text-xs text-[#6E6E73] max-w-xl">
+        <div className="flex items-start gap-2.5 text-xs text-slate-800 font-medium max-w-xl">
           <AlertCircle className="w-4 h-4 text-amber-600 flex-shrink-0 mt-0.5" />
           <p>
-            <strong>Preliminary Checklist:</strong> Your final document requirements depend on your applicant category and the published prospectus for the current admission cycle.
+            <strong className="text-slate-950 font-bold">Preliminary Checklist:</strong> Your final document requirements depend on your applicant category and the published prospectus for the current admission cycle.
           </p>
         </div>
 

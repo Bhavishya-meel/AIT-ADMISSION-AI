@@ -12,7 +12,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
   };
 
   return (
-    <footer className="bg-transparent text-[#6E6E73] text-xs pt-16 pb-12 border-t border-black/[0.06]">
+    <footer className="bg-transparent text-slate-800 text-xs pt-16 pb-12 border-t border-black/[0.08]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
         {/* Main Footer Columns */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -26,28 +26,28 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                   className="w-full h-full object-contain filter drop-shadow"
                 />
               </div>
-              <span className="font-semibold text-sm text-[#1D1D1F]">
+              <span className="font-bold text-sm text-slate-950">
                 AIT Admissions AI
               </span>
             </div>
-            <p className="text-xs text-[#6E6E73] max-w-sm leading-relaxed">
+            <p className="text-xs text-slate-800 font-medium max-w-sm leading-relaxed">
               An Apple-inspired admission guidance assistant customized specifically for the Army Institute of Technology (AIT), Pune, Maharashtra, India.
             </p>
-            <p className="text-[11px] text-[#86868B]">
+            <p className="text-[11px] text-slate-700 font-bold">
               Student-built project prototype.
             </p>
           </div>
 
           {/* Quick Navigation */}
           <div className="space-y-2.5">
-            <p className="text-xs font-semibold text-[#1D1D1F] uppercase tracking-wider">
+            <p className="text-xs font-bold text-slate-950 uppercase tracking-wider">
               Navigation
             </p>
-            <ul className="space-y-2">
+            <ul className="space-y-2 font-semibold">
               <li>
                 <button
                   onClick={() => onNavigate('hero')}
-                  className="hover:text-[#1D1D1F] transition-colors"
+                  className="text-slate-800 hover:text-black transition-colors"
                 >
                   Home
                 </button>
@@ -55,7 +55,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               <li>
                 <button
                   onClick={() => onNavigate('journey')}
-                  className="hover:text-[#1D1D1F] transition-colors"
+                  className="text-slate-800 hover:text-black transition-colors"
                 >
                   Admission Journey
                 </button>
@@ -63,7 +63,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               <li>
                 <button
                   onClick={() => onNavigate('branches')}
-                  className="hover:text-[#1D1D1F] transition-colors"
+                  className="text-slate-800 hover:text-black transition-colors"
                 >
                   Explore Branches
                 </button>
@@ -71,7 +71,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               <li>
                 <button
                   onClick={() => onNavigate('eligibility')}
-                  className="hover:text-[#1D1D1F] transition-colors"
+                  className="text-slate-800 hover:text-black transition-colors"
                 >
                   Eligibility Wizard
                 </button>
@@ -79,7 +79,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               <li>
                 <button
                   onClick={() => onNavigate('faqs')}
-                  className="hover:text-[#1D1D1F] transition-colors"
+                  className="text-slate-800 hover:text-black transition-colors"
                 >
                   FAQs
                 </button>
@@ -89,17 +89,17 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
 
           {/* Official Resources Links */}
           <div className="space-y-2.5">
-            <p className="text-xs font-semibold text-[#1D1D1F] uppercase tracking-wider">
+            <p className="text-xs font-bold text-slate-950 uppercase tracking-wider">
               Official Portals
             </p>
-            <ul className="space-y-2">
+            <ul className="space-y-2 font-semibold">
               {OFFICIAL_SOURCES.slice(0, 4).map((source) => (
                 <li key={source.id}>
                   <a
                     href={source.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 hover:text-[#0071E3] transition-colors"
+                    className="inline-flex items-center gap-1 text-slate-800 hover:text-[#0071E3] transition-colors"
                   >
                     <span>{source.title}</span>
                     <ExternalLink className="w-2.5 h-2.5" />
@@ -111,22 +111,22 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
         </div>
 
         {/* Prototype Disclaimer Box */}
-        <div className="pt-6 border-t border-black/[0.06] space-y-2 text-[11px] leading-relaxed text-[#86868B]">
+        <div className="pt-6 border-t border-black/[0.08] space-y-2 text-[11px] leading-relaxed text-slate-800 font-medium">
           <p>
-            <strong className="text-[#6E6E73]">Prototype Disclaimer:</strong> AIT Admissions AI is an independent student-built prototype created for academic exploration and admission guidance demonstration. It is not an official portal of the Army Institute of Technology (AIT) Pune or the Army Welfare Education Society (AWES), and has not been officially launched or endorsed by the institute.
+            <strong className="text-slate-950 font-bold">Prototype Disclaimer:</strong> AIT Admissions AI is an independent student-built prototype created for academic exploration and admission guidance demonstration. It is not an official portal of the Army Institute of Technology (AIT) Pune or the Army Welfare Education Society (AWES), and has not been officially launched or endorsed by the institute.
           </p>
           <p>
-            Admission rules, eligibility definitions, mandatory relationship certificates (Form P1 to P4), cutoffs, fees, and schedules are determined solely by official AIT Pune notifications. All prospective applicants must consult the official website (<a href="https://www.aitpune.com" target="_blank" rel="noopener noreferrer" className="underline hover:text-[#0071E3]">aitpune.com</a>) and the latest published prospectus for authoritative guidelines.
+            Admission rules, eligibility definitions, mandatory relationship certificates (Form P1 to P4), cutoffs, fees, and schedules are determined solely by official AIT Pune notifications. All prospective applicants must consult the official website (<a href="https://www.aitpune.com" target="_blank" rel="noopener noreferrer" className="underline font-bold text-[#0071E3] hover:text-[#0077ED]">aitpune.com</a>) and the latest published prospectus for authoritative guidelines.
           </p>
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-4 border-t border-black/[0.04] flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px]">
+        <div className="pt-4 border-t border-black/[0.06] flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] font-semibold text-slate-800">
           <p>© {new Date().getFullYear()} AIT Admissions AI · Independent Student Prototype</p>
 
           <button
             onClick={scrollToTop}
-            className="inline-flex items-center gap-1.5 text-[#6E6E73] hover:text-[#1D1D1F] transition-colors font-medium"
+            className="inline-flex items-center gap-1.5 text-slate-800 hover:text-black transition-colors font-bold"
           >
             <span>Back to top</span>
             <ArrowUp className="w-3.5 h-3.5" />

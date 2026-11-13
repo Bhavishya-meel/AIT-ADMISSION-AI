@@ -58,16 +58,16 @@ export const EligibilityWizard: React.FC<EligibilityWizardProps> = ({ onAskMonda
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-10 md:mb-14">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 mb-3">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/95 border border-blue-200 shadow-xs mb-3 backdrop-blur-md">
             <FileCheck2 className="w-3.5 h-3.5 text-[#0071E3]" />
-            <span className="text-[12px] font-semibold text-[#0071E3] uppercase tracking-wider">
+            <span className="text-[12px] font-bold text-[#005FCC] uppercase tracking-wider">
               Interactive Guidance Tool
             </span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#1D1D1F]">
+          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-[#0F172A] drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]">
             Eligibility Guidance Wizard
           </h2>
-          <p className="mt-3 text-base text-[#6E6E73] leading-relaxed">
+          <p className="mt-3 text-base text-slate-800 font-medium leading-relaxed max-w-xl mx-auto">
             Answer 4 quick questions to see your tailored category roadmap, document checklist, and official verification steps.
           </p>
         </div>
@@ -80,7 +80,7 @@ export const EligibilityWizard: React.FC<EligibilityWizardProps> = ({ onAskMonda
               <span className="w-7 h-7 rounded-full bg-[#0071E3] text-white text-xs font-bold flex items-center justify-center">
                 {Math.min(currentStep, 4)}/4
               </span>
-              <span className="text-xs font-semibold text-[#1D1D1F]">
+              <span className="text-xs font-bold text-slate-950">
                 {stepTitles[currentStep - 1]}
               </span>
             </div>
@@ -89,7 +89,7 @@ export const EligibilityWizard: React.FC<EligibilityWizardProps> = ({ onAskMonda
               {currentStep > 1 && (
                 <button
                   onClick={() => setCurrentStep((prev) => Math.max(prev - 1, 1))}
-                  className="text-xs font-medium text-[#6E6E73] hover:text-[#1D1D1F] transition-colors"
+                  className="text-xs font-semibold text-slate-700 hover:text-slate-950 transition-colors"
                 >
                   Back
                 </button>
@@ -97,7 +97,7 @@ export const EligibilityWizard: React.FC<EligibilityWizardProps> = ({ onAskMonda
               {currentStep > 1 && (
                 <button
                   onClick={handleReset}
-                  className="text-xs font-medium text-[#86868B] hover:text-[#1D1D1F] flex items-center gap-1 transition-colors"
+                  className="text-xs font-semibold text-slate-700 hover:text-slate-950 flex items-center gap-1 transition-colors"
                 >
                   <RotateCcw className="w-3 h-3" /> Reset
                 </button>
@@ -127,13 +127,13 @@ export const EligibilityWizard: React.FC<EligibilityWizardProps> = ({ onAskMonda
                   className="space-y-6"
                 >
                   <div>
-                    <span className="text-xs font-semibold text-[#0071E3] uppercase tracking-wider">
+                    <span className="text-xs font-bold text-[#0071E3] uppercase tracking-wider">
                       Step 1 of 4
                     </span>
-                    <h3 className="text-xl sm:text-2xl font-bold text-[#1D1D1F] mt-1">
+                    <h3 className="text-xl sm:text-2xl font-bold text-slate-950 mt-1">
                       What degree are you applying for?
                     </h3>
-                    <p className="text-sm text-[#6E6E73] mt-1">
+                    <p className="text-sm text-slate-800 font-medium mt-1">
                       AIT Pune offers undergraduate B.E. programs and select postgraduate / doctoral degrees.
                     </p>
                   </div>
@@ -162,10 +162,10 @@ export const EligibilityWizard: React.FC<EligibilityWizardProps> = ({ onAskMonda
                         className="w-full text-left p-4 rounded-2xl border border-black/[0.08] hover:border-[#0071E3] hover:bg-blue-50/30 transition-all flex items-center justify-between group active:scale-[0.99]"
                       >
                         <div>
-                          <p className="font-semibold text-sm sm:text-base text-[#1D1D1F] group-hover:text-[#0071E3]">
+                          <p className="font-bold text-sm sm:text-base text-slate-950 group-hover:text-[#0071E3]">
                             {opt.title}
                           </p>
-                          <p className="text-xs text-[#6E6E73] mt-0.5">{opt.desc}</p>
+                          <p className="text-xs text-slate-700 font-medium mt-0.5">{opt.desc}</p>
                         </div>
                         <ChevronRight className="w-5 h-5 text-[#86868B] group-hover:text-[#0071E3] group-hover:translate-x-1 transition-all" />
                       </button>
@@ -185,13 +185,13 @@ export const EligibilityWizard: React.FC<EligibilityWizardProps> = ({ onAskMonda
                   className="space-y-6"
                 >
                   <div>
-                    <span className="text-xs font-semibold text-[#0071E3] uppercase tracking-wider">
+                    <span className="text-xs font-bold text-[#0071E3] uppercase tracking-wider">
                       Step 2 of 4
                     </span>
-                    <h3 className="text-xl sm:text-2xl font-bold text-[#1D1D1F] mt-1">
+                    <h3 className="text-xl sm:text-2xl font-bold text-slate-950 mt-1">
                       Which category best describes your family situation?
                     </h3>
-                    <p className="text-sm text-[#6E6E73] mt-1">
+                    <p className="text-sm text-slate-800 font-medium mt-1">
                       Selecting an option provides preliminary guidance. It does not establish legal eligibility.
                     </p>
                   </div>
@@ -230,10 +230,10 @@ export const EligibilityWizard: React.FC<EligibilityWizardProps> = ({ onAskMonda
                         className="w-full text-left p-4 rounded-2xl border border-black/[0.08] hover:border-[#0071E3] hover:bg-blue-50/30 transition-all flex items-center justify-between group active:scale-[0.99]"
                       >
                         <div>
-                          <p className="font-semibold text-sm sm:text-base text-[#1D1D1F] group-hover:text-[#0071E3]">
+                          <p className="font-bold text-sm sm:text-base text-slate-950 group-hover:text-[#0071E3]">
                             {opt.title}
                           </p>
-                          <p className="text-xs text-[#6E6E73] mt-0.5">{opt.desc}</p>
+                          <p className="text-xs text-slate-700 font-medium mt-0.5">{opt.desc}</p>
                         </div>
                         <ChevronRight className="w-5 h-5 text-[#86868B] group-hover:text-[#0071E3] group-hover:translate-x-1 transition-all" />
                       </button>
@@ -253,13 +253,13 @@ export const EligibilityWizard: React.FC<EligibilityWizardProps> = ({ onAskMonda
                   className="space-y-6"
                 >
                   <div>
-                    <span className="text-xs font-semibold text-[#0071E3] uppercase tracking-wider">
+                    <span className="text-xs font-bold text-[#0071E3] uppercase tracking-wider">
                       Step 3 of 4
                     </span>
-                    <h3 className="text-xl sm:text-2xl font-bold text-[#1D1D1F] mt-1">
+                    <h3 className="text-xl sm:text-2xl font-bold text-slate-950 mt-1">
                       Have you appeared for JEE Main or checked entrance requirements?
                     </h3>
-                    <p className="text-sm text-[#6E6E73] mt-1">
+                    <p className="text-sm text-slate-800 font-medium mt-1">
                       AIT undergraduate admission is strictly based on All India Rank in NTA JEE (Main) Paper 1.
                     </p>
                   </div>
@@ -293,10 +293,10 @@ export const EligibilityWizard: React.FC<EligibilityWizardProps> = ({ onAskMonda
                         className="w-full text-left p-4 rounded-2xl border border-black/[0.08] hover:border-[#0071E3] hover:bg-blue-50/30 transition-all flex items-center justify-between group active:scale-[0.99]"
                       >
                         <div>
-                          <p className="font-semibold text-sm sm:text-base text-[#1D1D1F] group-hover:text-[#0071E3]">
+                          <p className="font-bold text-sm sm:text-base text-slate-950 group-hover:text-[#0071E3]">
                             {opt.title}
                           </p>
-                          <p className="text-xs text-[#6E6E73] mt-0.5">{opt.desc}</p>
+                          <p className="text-xs text-slate-700 font-medium mt-0.5">{opt.desc}</p>
                         </div>
                         <ChevronRight className="w-5 h-5 text-[#86868B] group-hover:text-[#0071E3] group-hover:translate-x-1 transition-all" />
                       </button>
@@ -316,13 +316,13 @@ export const EligibilityWizard: React.FC<EligibilityWizardProps> = ({ onAskMonda
                   className="space-y-6"
                 >
                   <div>
-                    <span className="text-xs font-semibold text-[#0071E3] uppercase tracking-wider">
+                    <span className="text-xs font-bold text-[#0071E3] uppercase tracking-wider">
                       Step 4 of 4
                     </span>
-                    <h3 className="text-xl sm:text-2xl font-bold text-[#1D1D1F] mt-1">
+                    <h3 className="text-xl sm:text-2xl font-bold text-slate-950 mt-1">
                       What is your Class 12 / Qualifying Exam academic status?
                     </h3>
-                    <p className="text-sm text-[#6E6E73] mt-1">
+                    <p className="text-sm text-slate-800 font-medium mt-1">
                       Check your PCM group eligibility criteria under Savitribai Phule Pune University guidelines.
                     </p>
                   </div>
@@ -351,10 +351,10 @@ export const EligibilityWizard: React.FC<EligibilityWizardProps> = ({ onAskMonda
                         className="w-full text-left p-4 rounded-2xl border border-black/[0.08] hover:border-[#0071E3] hover:bg-blue-50/30 transition-all flex items-center justify-between group active:scale-[0.99]"
                       >
                         <div>
-                          <p className="font-semibold text-sm sm:text-base text-[#1D1D1F] group-hover:text-[#0071E3]">
+                          <p className="font-bold text-sm sm:text-base text-slate-950 group-hover:text-[#0071E3]">
                             {opt.title}
                           </p>
-                          <p className="text-xs text-[#6E6E73] mt-0.5">{opt.desc}</p>
+                          <p className="text-xs text-slate-700 font-medium mt-0.5">{opt.desc}</p>
                         </div>
                         <ChevronRight className="w-5 h-5 text-[#86868B] group-hover:text-[#0071E3] group-hover:translate-x-1 transition-all" />
                       </button>
@@ -398,8 +398,8 @@ export const EligibilityWizard: React.FC<EligibilityWizardProps> = ({ onAskMonda
                   {/* Summary Overview Grid */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 bg-[#F5F5F7] p-4 sm:p-5 rounded-2xl border border-black/[0.05]">
                     <div>
-                      <p className="text-[11px] font-semibold text-[#86868B] uppercase">Program Track</p>
-                      <p className="text-sm font-semibold text-[#1D1D1F] mt-0.5">
+                      <p className="text-[11px] font-bold text-slate-700 uppercase">Program Track</p>
+                      <p className="text-sm font-bold text-slate-950 mt-0.5">
                         {answers.program === 'ug'
                           ? 'Undergraduate B.E. (4-Year)'
                           : answers.program === 'pg'
@@ -408,8 +408,8 @@ export const EligibilityWizard: React.FC<EligibilityWizardProps> = ({ onAskMonda
                       </p>
                     </div>
                     <div>
-                      <p className="text-[11px] font-semibold text-[#86868B] uppercase">Defense Relationship</p>
-                      <p className="text-sm font-semibold text-[#1D1D1F] mt-0.5">
+                      <p className="text-[11px] font-bold text-slate-700 uppercase">Defense Relationship</p>
+                      <p className="text-sm font-bold text-slate-950 mt-0.5">
                         {answers.category === 'serving-army' && 'Serving Army Personnel Ward (Form P1)'}
                         {answers.category === 'retired-army' && 'Ex-Servicemen Ward (Form P2 + Discharge Book)'}
                         {answers.category === 'special-widow' && 'War Widow / Priority Category (Form P3/P4)'}
@@ -418,14 +418,14 @@ export const EligibilityWizard: React.FC<EligibilityWizardProps> = ({ onAskMonda
                       </p>
                     </div>
                     <div>
-                      <p className="text-[11px] font-semibold text-[#86868B] uppercase">Entrance Requirement</p>
-                      <p className="text-sm font-semibold text-[#1D1D1F] mt-0.5">
+                      <p className="text-[11px] font-bold text-slate-700 uppercase">Entrance Requirement</p>
+                      <p className="text-sm font-bold text-slate-950 mt-0.5">
                         NTA JEE (Main) Paper 1 (Compulsory)
                       </p>
                     </div>
                     <div>
-                      <p className="text-[11px] font-semibold text-[#86868B] uppercase">Academic Criteria</p>
-                      <p className="text-sm font-semibold text-[#1D1D1F] mt-0.5">
+                      <p className="text-[11px] font-bold text-slate-700 uppercase">Academic Criteria</p>
+                      <p className="text-sm font-bold text-slate-950 mt-0.5">
                         10+2 with Physics, Mathematics & 50%+ PCM
                       </p>
                     </div>

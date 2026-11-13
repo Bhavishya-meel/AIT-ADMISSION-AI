@@ -50,22 +50,22 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onAskMonday, onAskAstra 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-10 md:mb-14">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 mb-3">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/95 border border-blue-200 shadow-xs mb-3 backdrop-blur-md">
             <HelpCircle className="w-3.5 h-3.5 text-[#0071E3]" />
-            <span className="text-[12px] font-semibold text-[#0071E3] uppercase tracking-wider">
+            <span className="text-[12px] font-bold text-[#005FCC] uppercase tracking-wider">
               Answers & Clarifications
             </span>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-[#1D1D1F]">
+          <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-[#0F172A] drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]">
             Frequently Asked Questions
           </h2>
-          <p className="mt-3 text-base text-[#6E6E73] leading-relaxed">
+          <p className="mt-3 text-base text-slate-800 font-medium leading-relaxed max-w-xl mx-auto">
             Direct, verified answers to the most common queries from prospective students and parents.
           </p>
 
           {/* Search Bar */}
           <div className="mt-8 relative max-w-lg mx-auto">
-            <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-[#86868B]">
+            <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-500">
               <Search className="w-4 h-4" />
             </div>
             <input
@@ -73,12 +73,12 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onAskMonday, onAskAstra 
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search by keywords (e.g., civilian, cutoff, form p1, fees)..."
-              className="w-full pl-10 pr-9 py-3 rounded-full bg-white border border-black/[0.08] text-sm text-[#1D1D1F] placeholder:text-[#86868B] shadow-2xs focus:outline-none focus:border-[#0071E3] focus:ring-2 focus:ring-blue-500/10 transition-all"
+              className="w-full pl-10 pr-9 py-3 rounded-full bg-white border border-slate-300 text-sm font-medium text-slate-950 placeholder:text-slate-500 shadow-2xs focus:outline-none focus:border-[#0071E3] focus:ring-2 focus:ring-blue-500/10 transition-all"
             />
             {searchQuery && (
               <button
                 onClick={() => setSearchQuery('')}
-                className="absolute inset-y-0 right-0 pr-3.5 flex items-center text-[#86868B] hover:text-[#1D1D1F]"
+                className="absolute inset-y-0 right-0 pr-3.5 flex items-center text-slate-500 hover:text-slate-950"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -93,8 +93,8 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onAskMonday, onAskAstra 
                 onClick={() => setSelectedCategory(cat.id)}
                 className={`px-3 py-1.5 rounded-full text-xs font-semibold transition-all ${
                   selectedCategory === cat.id
-                    ? 'bg-[#1D1D1F] text-white shadow-xs'
-                    : 'bg-white text-[#6E6E73] hover:text-[#1D1D1F] border border-black/[0.06]'
+                    ? 'bg-slate-950 text-white shadow-xs'
+                    : 'bg-white/95 text-slate-800 hover:text-slate-950 border border-slate-300'
                 }`}
               >
                 {cat.label}
@@ -138,11 +138,11 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onAskMonday, onAskAstra 
                     className="w-full text-left p-5 sm:p-6 flex items-center justify-between gap-4 cursor-pointer"
                     aria-expanded={isOpen}
                   >
-                    <span className="text-base sm:text-[17px] font-semibold text-[#1D1D1F] leading-snug">
+                    <span className="text-base sm:text-[17px] font-bold text-slate-950 leading-snug">
                       {faq.question}
                     </span>
                     <ChevronDown
-                      className={`w-5 h-5 text-[#86868B] flex-shrink-0 transition-transform duration-200 ${
+                      className={`w-5 h-5 text-slate-600 flex-shrink-0 transition-transform duration-200 ${
                         isOpen ? 'rotate-180 text-[#0071E3]' : ''
                       }`}
                     />
@@ -159,13 +159,13 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onAskMonday, onAskAstra 
                       >
                         {/* Short Summary pill */}
                         <div className="pt-4 pb-2">
-                          <p className="text-xs sm:text-sm font-semibold text-[#0071E3] leading-relaxed">
+                          <p className="text-xs sm:text-sm font-bold text-blue-700 leading-relaxed">
                             {faq.shortAnswer}
                           </p>
                         </div>
 
                         {/* Detailed text */}
-                        <div className="text-xs sm:text-[13.5px] text-[#3A3A3C] leading-relaxed whitespace-pre-line my-2">
+                        <div className="text-xs sm:text-[13.5px] text-slate-800 font-medium leading-relaxed whitespace-pre-line my-2">
                           {faq.detailedAnswer}
                         </div>
 
@@ -176,7 +176,7 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onAskMonday, onAskAstra 
                               href={faq.sourceUrl}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="inline-flex items-center gap-1 text-[#6E6E73] hover:text-[#0071E3] transition-colors"
+                              className="inline-flex items-center gap-1 text-slate-700 hover:text-[#0071E3] font-semibold transition-colors"
                             >
                               <span>Official reference: {faq.sourceNote}</span>
                               <ExternalLink className="w-3 h-3 text-[#0071E3]" />
