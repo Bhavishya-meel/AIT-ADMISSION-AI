@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Sparkles, User, ExternalLink, Copy, Check, ShieldCheck } from 'lucide-react';
+import { Sparkles, User, ExternalLink, Copy, Check, ShieldCheck, Cpu } from 'lucide-react';
 import type { ChatMessage } from '../lib/responseEngine';
 
 interface ChatMessageViewProps {
@@ -17,7 +17,7 @@ export const ChatMessageView: React.FC<ChatMessageViewProps> = ({ message, onFol
     setTimeout(() => setCopied(false), 2000);
   };
 
-  // Simple clean markdown-like parser for paragraphs, bolding, bullet points
+  // Clean markdown-like parser for paragraphs, bolding, bullet points, numbered lists
   const formatContent = (content: string) => {
     const lines = content.split('\n');
     return lines.map((line, idx) => {
@@ -78,8 +78,8 @@ export const ChatMessageView: React.FC<ChatMessageViewProps> = ({ message, onFol
         {/* Avatar */}
         <div className="flex-shrink-0 pt-0.5">
           {isAssistant ? (
-            <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-[#0071E3] to-sky-400 flex items-center justify-center text-white shadow-sm ring-1 ring-black/5">
-              <Sparkles className="w-4 h-4" />
+            <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-[#0071E3] via-sky-500 to-indigo-600 flex items-center justify-center text-white shadow-sm ring-1 ring-black/5">
+              <Sparkles className="w-4 h-4 text-amber-200" />
             </div>
           ) : (
             <div className="w-8 h-8 rounded-full bg-slate-200 flex items-center justify-center text-slate-700">
@@ -99,9 +99,22 @@ export const ChatMessageView: React.FC<ChatMessageViewProps> = ({ message, onFol
           >
             {/* Header info in bubble */}
             <div className="flex items-center justify-between pb-1 text-[11px]">
-              <span className={isAssistant ? 'font-semibold text-[#1D1D1F]' : 'text-white/80'}>
-                {isAssistant ? 'Astra · Admissions Guide' : 'You'}
-              </span>
+              <div className="flex items-center gap-1.5">
+                <span className={isAssistant ? 'font-semibold text-[#1D1D1F]' : 'text-white/80'}>
+                  {isAssistant ? 'Monday · AIT AI Guide' : 'You'}
+                </span>
+                {isAssistant && message.provider === 'chatgpt' && (
+                  <span className="inline-flex items-center gap-0.5 px-1.5 py-0.2 rounded text-[9px] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
+                    ChatGPT
+                  </span>
+                )}
+                {isAssistant && message.provider === 'local' && (
+                  <span className="inline-flex items-center gap-0.5 px-1.5 py-0.2 rounded text-[9px] font-medium bg-blue-50 text-[#0071E3] border border-blue-100">
+                    <Cpu className="w-2.5 h-2.5" />
+                    AIT Engine
+                  </span>
+                )}
+              </div>
               <div className="flex items-center gap-2">
                 <span className={isAssistant ? 'text-[#86868B]' : 'text-white/70'}>
                   {message.timestamp}

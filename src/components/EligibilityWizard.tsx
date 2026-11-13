@@ -14,7 +14,8 @@ import {
 import { OFFICIAL_SOURCES } from '../data/sourceLinks';
 
 interface EligibilityWizardProps {
-  onAskAstra: (prompt: string) => void;
+  onAskMonday?: (prompt: string) => void;
+  onAskAstra?: (prompt: string) => void;
 }
 
 interface Answers {
@@ -24,7 +25,8 @@ interface Answers {
   academics: string;
 }
 
-export const EligibilityWizard: React.FC<EligibilityWizardProps> = ({ onAskAstra }) => {
+export const EligibilityWizard: React.FC<EligibilityWizardProps> = ({ onAskMonday, onAskAstra }) => {
+  const ask = onAskMonday || onAskAstra || (() => {});
   const [currentStep, setCurrentStep] = useState(1);
   const [answers, setAnswers] = useState<Answers>({
     program: '',
@@ -52,7 +54,7 @@ export const EligibilityWizard: React.FC<EligibilityWizardProps> = ({ onAskAstra
   ];
 
   return (
-    <section id="eligibility" className="py-20 md:py-28 bg-[#F5F5F7] border-y border-black/[0.06]">
+    <section id="eligibility" className="py-20 md:py-28 bg-transparent border-y border-black/[0.06]">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-10 md:mb-14">
@@ -71,7 +73,7 @@ export const EligibilityWizard: React.FC<EligibilityWizardProps> = ({ onAskAstra
         </div>
 
         {/* Wizard Card Container */}
-        <div className="bg-white rounded-3xl border border-black/[0.08] shadow-[0_16px_40px_-12px_rgba(0,0,0,0.06)] overflow-hidden">
+        <div className="bg-white/85 backdrop-blur-md rounded-3xl border border-black/[0.08] shadow-[0_16px_40px_-12px_rgba(0,0,0,0.06)] overflow-hidden">
           {/* Progress Bar & Header */}
           <div className="px-6 py-4 border-b border-black/[0.06] bg-slate-50/60 flex items-center justify-between">
             <div className="flex items-center gap-3">
@@ -468,7 +470,7 @@ export const EligibilityWizard: React.FC<EligibilityWizardProps> = ({ onAskAstra
                   <div className="pt-2 flex flex-col sm:flex-row items-center gap-3">
                     <button
                       onClick={() =>
-                        onAskAstra(
+                        ask(
                           answers.category === 'serving-army'
                             ? 'My parent is currently serving in the Army. Walk me through Form P1 and the ERP registration.'
                             : answers.category === 'retired-army'
@@ -480,8 +482,8 @@ export const EligibilityWizard: React.FC<EligibilityWizardProps> = ({ onAskAstra
                       }
                       className="w-full sm:w-auto flex-1 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full text-xs sm:text-sm font-semibold bg-[#0071E3] text-white hover:bg-[#0077ED] active:scale-95 transition-all shadow-sm shadow-blue-500/20"
                     >
-                      <Sparkles className="w-4 h-4 text-sky-200" />
-                      <span>Ask Astra About My Category</span>
+                      <Sparkles className="w-4 h-4 text-amber-200" />
+                      <span>Ask Monday About My Category</span>
                     </button>
 
                     <a

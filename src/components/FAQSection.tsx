@@ -11,10 +11,12 @@ import {
 import { ADMISSION_FAQS } from '../data/faqs';
 
 interface FAQSectionProps {
-  onAskAstra: (prompt: string) => void;
+  onAskMonday?: (prompt: string) => void;
+  onAskAstra?: (prompt: string) => void;
 }
 
-export const FAQSection: React.FC<FAQSectionProps> = ({ onAskAstra }) => {
+export const FAQSection: React.FC<FAQSectionProps> = ({ onAskMonday, onAskAstra }) => {
+  const ask = onAskMonday || onAskAstra || (() => {});
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [openFaqId, setOpenFaqId] = useState<string | null>('faq-who-is-eligible');
@@ -44,7 +46,7 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onAskAstra }) => {
   };
 
   return (
-    <section id="faqs" className="py-20 md:py-28 bg-[#F5F5F7] border-b border-black/[0.06]">
+    <section id="faqs" className="py-20 md:py-28 bg-transparent border-b border-black/[0.06]">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-10 md:mb-14">
@@ -109,14 +111,14 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onAskAstra }) => {
                 No matching questions found for "{searchQuery}"
               </p>
               <p className="text-xs text-[#6E6E73] mt-1">
-                You can ask Astra directly, and our conversational guide will assist you immediately.
+                You can ask Monday directly, and our conversational AI will assist you immediately.
               </p>
               <button
-                onClick={() => onAskAstra(searchQuery || 'Tell me about AIT admission')}
+                onClick={() => ask(searchQuery || 'Tell me about AIT admission')}
                 className="mt-4 inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold bg-[#0071E3] text-white hover:bg-[#0077ED] transition-colors"
               >
-                <Sparkles className="w-3.5 h-3.5" />
-                <span>Ask Astra "{searchQuery || 'admission'}"</span>
+                <Sparkles className="w-3.5 h-3.5 text-amber-200" />
+                <span>Ask Monday "{searchQuery || 'admission'}"</span>
               </button>
             </div>
           ) : (
@@ -125,7 +127,7 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onAskAstra }) => {
               return (
                 <div
                   key={faq.id}
-                  className={`bg-white rounded-2xl border transition-all duration-200 overflow-hidden ${
+                  className={`bg-white/85 backdrop-blur-md rounded-2xl border transition-all duration-200 overflow-hidden ${
                     isOpen
                       ? 'border-[#0071E3] shadow-md shadow-blue-500/5 ring-1 ring-blue-500/10'
                       : 'border-black/[0.06] hover:border-black/[0.12] shadow-2xs'
@@ -182,11 +184,11 @@ export const FAQSection: React.FC<FAQSectionProps> = ({ onAskAstra }) => {
                           )}
 
                           <button
-                            onClick={() => onAskAstra(faq.relatedAstraQuery || faq.question)}
+                            onClick={() => ask(faq.relatedMondayQuery || faq.relatedAstraQuery || faq.question)}
                             className="inline-flex items-center gap-1.5 font-semibold text-[#0071E3] hover:underline"
                           >
                             <Sparkles className="w-3.5 h-3.5" />
-                            <span>Ask Astra more about this</span>
+                            <span>Ask Monday more about this</span>
                           </button>
                         </div>
                       </motion.div>

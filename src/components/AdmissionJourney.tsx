@@ -12,10 +12,12 @@ import { ADMISSION_STAGES } from '../data/admissionKnowledge';
 import { DocumentChecklist } from './DocumentChecklist';
 
 interface AdmissionJourneyProps {
-  onAskAstra: (prompt: string) => void;
+  onAskMonday?: (prompt: string) => void;
+  onAskAstra?: (prompt: string) => void;
 }
 
-export const AdmissionJourney: React.FC<AdmissionJourneyProps> = ({ onAskAstra }) => {
+export const AdmissionJourney: React.FC<AdmissionJourneyProps> = ({ onAskMonday, onAskAstra }) => {
+  const ask = onAskMonday || onAskAstra || (() => {});
   const [expandedStep, setExpandedStep] = useState<number | null>(1);
 
   const toggleStep = (step: number) => {
@@ -23,11 +25,11 @@ export const AdmissionJourney: React.FC<AdmissionJourneyProps> = ({ onAskAstra }
   };
 
   return (
-    <section id="journey" className="py-20 md:py-28 bg-[#F5F5F7] border-b border-black/[0.06]">
+    <section id="journey" className="py-20 md:py-28 bg-transparent border-b border-black/[0.06]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-14 md:mb-20">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 mb-3">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50/90 border border-blue-100 mb-3 backdrop-blur-sm">
             <Compass className="w-3.5 h-3.5 text-[#0071E3]" />
             <span className="text-[12px] font-semibold text-[#0071E3] uppercase tracking-wider">
               Step-by-Step Roadmap
@@ -48,7 +50,7 @@ export const AdmissionJourney: React.FC<AdmissionJourneyProps> = ({ onAskAstra }
             return (
               <div
                 key={stage.step}
-                className={`bg-white rounded-2xl border transition-all duration-200 overflow-hidden ${
+                className={`bg-white/85 backdrop-blur-md rounded-2xl border transition-all duration-200 overflow-hidden ${
                   isExpanded
                     ? 'border-[#0071E3] shadow-md shadow-blue-500/5 ring-1 ring-blue-500/10'
                     : 'border-black/[0.07] hover:border-black/[0.12] shadow-2xs'
@@ -129,7 +131,7 @@ export const AdmissionJourney: React.FC<AdmissionJourneyProps> = ({ onAskAstra }
                         </div>
                       )}
 
-                      {/* Action Links & Astra query */}
+                      {/* Action Links & Monday query */}
                       <div className="pt-2 flex flex-wrap items-center justify-between gap-3 border-t border-black/[0.05]">
                         {stage.actionUrl && (
                           <a
@@ -145,12 +147,12 @@ export const AdmissionJourney: React.FC<AdmissionJourneyProps> = ({ onAskAstra }
 
                         <button
                           onClick={() =>
-                            onAskAstra(`Explain Stage ${stage.step} of AIT admission: ${stage.title}`)
+                            ask(`Explain Stage ${stage.step} of AIT admission: ${stage.title}`)
                           }
                           className="inline-flex items-center gap-1 text-xs text-[#6E6E73] hover:text-[#0071E3] font-medium transition-colors"
                         >
                           <Sparkles className="w-3.5 h-3.5 text-[#0071E3]" />
-                          <span>Ask Astra about this step</span>
+                          <span>Ask Monday about this step</span>
                         </button>
                       </div>
                     </motion.div>
@@ -163,7 +165,7 @@ export const AdmissionJourney: React.FC<AdmissionJourneyProps> = ({ onAskAstra }
 
         {/* Embedded Interactive Document Checklist */}
         <div className="max-w-4xl mx-auto">
-          <DocumentChecklist onAskAstra={onAskAstra} />
+          <DocumentChecklist onAskMonday={ask} onAskAstra={ask} />
         </div>
       </div>
     </section>

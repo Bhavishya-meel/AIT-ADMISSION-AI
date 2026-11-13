@@ -65,10 +65,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenChat, onNavigate
             <button
               onClick={() => onOpenChat()}
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-full text-[15px] font-semibold bg-[#0071E3] text-white hover:bg-[#0077ED] active:scale-[0.98] transition-all duration-200 shadow-md shadow-blue-500/20 group"
-              id="hero-ask-astra-btn"
+              id="hero-ask-monday-btn"
             >
-              <Sparkles className="w-4 h-4 text-sky-200 group-hover:rotate-12 transition-transform duration-200" />
-              <span>Ask Astra</span>
+              <Sparkles className="w-4 h-4 text-amber-200 group-hover:rotate-12 transition-transform duration-200" />
+              <span>Ask Monday</span>
               <ArrowRight className="w-4 h-4 text-white/80 group-hover:translate-x-0.5 transition-transform" />
             </button>
 
@@ -102,7 +102,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenChat, onNavigate
         >
           {/* Campus Photography Frame */}
           <div className="lg:col-span-7">
-            <div className="group relative rounded-3xl overflow-hidden border border-black/[0.08] shadow-[0_16px_40px_-12px_rgba(0,0,0,0.08)] bg-white">
+            <div className="group relative rounded-3xl overflow-hidden border border-black/[0.08] shadow-[0_16px_40px_-12px_rgba(0,0,0,0.08)] bg-white/85 backdrop-blur-md">
               <div className="aspect-[16/10] w-full overflow-hidden bg-slate-100 relative">
                 <img
                   src="/images/ait-campus-hero.jpg"
@@ -128,20 +128,20 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenChat, onNavigate
               </div>
 
               {/* Institution Key Meta Pills */}
-              <div className="p-4 sm:p-5 bg-white border-t border-black/[0.05] grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
-                <div className="p-2.5 rounded-xl bg-[#F5F5F7]">
+              <div className="p-4 sm:p-5 bg-white/70 border-t border-black/[0.05] grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
+                <div className="p-2.5 rounded-xl bg-slate-100/80">
                   <p className="text-[11px] text-[#86868B] uppercase tracking-wider font-semibold">Established</p>
                   <p className="text-sm font-semibold text-[#1D1D1F] mt-0.5">1994 (AWES)</p>
                 </div>
-                <div className="p-2.5 rounded-xl bg-[#F5F5F7]">
+                <div className="p-2.5 rounded-xl bg-slate-100/80">
                   <p className="text-[11px] text-[#86868B] uppercase tracking-wider font-semibold">Status</p>
                   <p className="text-sm font-semibold text-[#1D1D1F] mt-0.5">Autonomous</p>
                 </div>
-                <div className="p-2.5 rounded-xl bg-[#F5F5F7]">
+                <div className="p-2.5 rounded-xl bg-slate-100/80">
                   <p className="text-[11px] text-[#86868B] uppercase tracking-wider font-semibold">Selection</p>
                   <p className="text-sm font-semibold text-[#1D1D1F] mt-0.5">JEE Main CRL</p>
                 </div>
-                <div className="p-2.5 rounded-xl bg-[#F5F5F7]">
+                <div className="p-2.5 rounded-xl bg-slate-100/80">
                   <p className="text-[11px] text-[#86868B] uppercase tracking-wider font-semibold">Campuses</p>
                   <p className="text-sm font-semibold text-[#1D1D1F] mt-0.5">100% Residential</p>
                 </div>
@@ -151,19 +151,19 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenChat, onNavigate
 
           {/* Chat Preview Interactive Card */}
           <div className="lg:col-span-5">
-            <div className="rounded-3xl border border-black/[0.08] bg-white p-5 sm:p-6 shadow-[0_16px_40px_-12px_rgba(0,0,0,0.06)] relative">
+            <div className="rounded-3xl border border-black/[0.08] bg-white/85 backdrop-blur-md p-5 sm:p-6 shadow-[0_16px_40px_-12px_rgba(0,0,0,0.06)] relative">
               {/* Card Header */}
               <div className="flex items-center justify-between pb-4 border-b border-black/[0.06]">
                 <div className="flex items-center gap-3">
-                  <div className="w-9 h-9 rounded-full bg-gradient-to-tr from-[#0071E3] to-sky-400 flex items-center justify-center text-white shadow-sm">
-                    <Sparkles className="w-4 h-4" />
+                  <div className="w-9 h-9 rounded-full bg-gradient-to-tr from-[#0071E3] via-sky-500 to-indigo-600 flex items-center justify-center text-white shadow-sm">
+                    <Sparkles className="w-4 h-4 text-amber-200" />
                   </div>
                   <div>
                     <h4 className="text-sm font-semibold text-[#1D1D1F] flex items-center gap-1.5">
-                      Astra
+                      Monday
                       <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
                     </h4>
-                    <p className="text-[11px] text-[#86868B]">AIT Admissions Guide · AI</p>
+                    <p className="text-[11px] text-[#86868B]">AIT Admissions & Campus AI</p>
                   </div>
                 </div>
                 <button
@@ -183,7 +183,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenChat, onNavigate
                   </div>
                 </div>
 
-                {/* Astra Assistant Bubble */}
+                {/* Monday Assistant Bubble */}
                 <div className="flex justify-start">
                   <div className="bg-[#F5F5F7] text-[#1D1D1F] border border-black/[0.04] px-4 py-3 rounded-2xl rounded-tl-sm max-w-[92%] space-y-2">
                     <p className="font-medium text-[#1D1D1F]">

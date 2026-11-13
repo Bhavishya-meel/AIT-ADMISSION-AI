@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Sparkles, Menu, X, Shield, ExternalLink, Compass, GraduationCap, HelpCircle, FileCheck, BookOpen } from 'lucide-react';
+import { Sparkles, Menu, X, ExternalLink, Compass, GraduationCap, HelpCircle, FileCheck, BookOpen } from 'lucide-react';
 
 interface NavbarProps {
   onOpenChat: (initialPrompt?: string) => void;
@@ -48,8 +48,12 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenChat, activeSection, onNav
             onClick={() => handleNavClick('hero')}
             className="flex items-center gap-3 cursor-pointer group select-none"
           >
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#801426] to-[#590d19] flex items-center justify-center text-white shadow-sm ring-1 ring-black/5 group-hover:scale-105 transition-transform duration-200">
-              <Shield className="w-5 h-5 text-amber-300" />
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#801426] to-[#590d19] p-1.5 flex items-center justify-center shadow-sm ring-1 ring-black/5 group-hover:scale-105 transition-transform duration-200">
+              <img
+                src="/images/ait-pune-logo.png"
+                alt="AIT Pune Crest"
+                className="w-full h-full object-contain filter drop-shadow"
+              />
             </div>
             <div>
               <div className="flex items-center gap-2">
@@ -86,15 +90,15 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenChat, activeSection, onNav
             })}
           </nav>
 
-          {/* Action Area: Ask Astra CTA */}
+          {/* Action Area: Ask Monday CTA */}
           <div className="flex items-center gap-2.5">
             <button
               onClick={() => onOpenChat()}
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-[13px] font-medium bg-[#0071E3] text-white hover:bg-[#0077ED] active:scale-[0.98] transition-all duration-200 shadow-sm shadow-blue-500/20 group"
-              id="ask-astra-nav-btn"
+              id="ask-monday-nav-btn"
             >
-              <Sparkles className="w-4 h-4 text-sky-200 group-hover:rotate-12 transition-transform duration-300" />
-              <span>Ask Astra</span>
+              <Sparkles className="w-4 h-4 text-amber-200 group-hover:rotate-12 transition-transform duration-300" />
+              <span>Ask Monday</span>
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse hidden sm:inline-block" />
             </button>
 

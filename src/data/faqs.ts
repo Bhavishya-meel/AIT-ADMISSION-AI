@@ -6,6 +6,7 @@ export interface AdmissionFAQ {
   detailedAnswer: string;
   sourceNote?: string;
   sourceUrl?: string;
+  relatedMondayQuery?: string;
   relatedAstraQuery?: string;
 }
 

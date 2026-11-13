@@ -1,5 +1,5 @@
 import React from 'react';
-import { Shield, ExternalLink, ArrowUp } from 'lucide-react';
+import { ExternalLink, ArrowUp } from 'lucide-react';
 import { OFFICIAL_SOURCES } from '../data/sourceLinks';
 
 interface FooterProps {
@@ -12,15 +12,19 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
   };
 
   return (
-    <footer className="bg-[#F5F5F7] text-[#6E6E73] text-xs pt-16 pb-12 border-t border-black/[0.06]">
+    <footer className="bg-transparent text-[#6E6E73] text-xs pt-16 pb-12 border-t border-black/[0.06]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
         {/* Main Footer Columns */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Identity Column */}
           <div className="md:col-span-2 space-y-3">
             <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#801426] to-[#590d19] flex items-center justify-center text-white shadow-xs">
-                <Shield className="w-4 h-4 text-amber-300" />
+              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#801426] to-[#590d19] p-1 flex items-center justify-center shadow-xs">
+                <img
+                  src="/images/ait-pune-logo.png"
+                  alt="AIT Pune Crest"
+                  className="w-full h-full object-contain filter drop-shadow"
+                />
               </div>
               <span className="font-semibold text-sm text-[#1D1D1F]">
                 AIT Admissions AI

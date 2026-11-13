@@ -3,10 +3,12 @@ import { CheckSquare, Square, RotateCcw, AlertCircle, FileCheck, ArrowRight } fr
 import { DOCUMENT_CHECKLIST_ITEMS } from '../data/admissionKnowledge';
 
 interface DocumentChecklistProps {
-  onAskAstra: (prompt: string) => void;
+  onAskMonday?: (prompt: string) => void;
+  onAskAstra?: (prompt: string) => void;
 }
 
-export const DocumentChecklist: React.FC<DocumentChecklistProps> = ({ onAskAstra }) => {
+export const DocumentChecklist: React.FC<DocumentChecklistProps> = ({ onAskMonday, onAskAstra }) => {
+  const ask = onAskMonday || onAskAstra || (() => {});
   const [selectedFilter, setSelectedFilter] = useState<'all' | 'serving' | 'retired' | 'special'>('all');
   const [checkedIds, setCheckedIds] = useState<string[]>([]);
 
@@ -31,7 +33,7 @@ export const DocumentChecklist: React.FC<DocumentChecklistProps> = ({ onAskAstra
   const progressPercent = totalFiltered > 0 ? Math.round((completedFiltered / totalFiltered) * 100) : 0;
 
   return (
-    <div className="bg-white rounded-3xl border border-black/[0.08] shadow-[0_16px_40px_-12px_rgba(0,0,0,0.06)] p-6 sm:p-8">
+    <div className="bg-white/85 backdrop-blur-md rounded-3xl border border-black/[0.08] shadow-[0_16px_40px_-12px_rgba(0,0,0,0.06)] p-6 sm:p-8">
       {/* Header & Controls */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-black/[0.06]">
         <div>
@@ -148,10 +150,10 @@ export const DocumentChecklist: React.FC<DocumentChecklistProps> = ({ onAskAstra
         </div>
 
         <button
-          onClick={() => onAskAstra('What documents and certificates are required for AIT admission?')}
+          onClick={() => ask('What documents and certificates are required for AIT admission?')}
           className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#0071E3] hover:underline flex-shrink-0"
         >
-          <span>Ask Astra about certificates</span>
+          <span>Ask Monday about certificates</span>
           <ArrowRight className="w-3.5 h-3.5" />
         </button>
       </div>

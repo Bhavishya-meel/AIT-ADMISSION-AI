@@ -15,10 +15,12 @@ import { ENGINEERING_BRANCHES } from '../data/programs';
 import type { EngineeringBranch } from '../data/programs';
 
 interface BranchExplorerProps {
-  onAskAstra: (prompt: string) => void;
+  onAskMonday?: (prompt: string) => void;
+  onAskAstra?: (prompt: string) => void;
 }
 
-export const BranchExplorer: React.FC<BranchExplorerProps> = ({ onAskAstra }) => {
+export const BranchExplorer: React.FC<BranchExplorerProps> = ({ onAskMonday, onAskAstra }) => {
+  const ask = onAskMonday || onAskAstra || (() => {});
   const [selectedBranch, setSelectedBranch] = useState<EngineeringBranch | null>(null);
   const [filter, setFilter] = useState<'all' | 'software' | 'electronics' | 'mechanical'>('all');
 
@@ -31,7 +33,7 @@ export const BranchExplorer: React.FC<BranchExplorerProps> = ({ onAskAstra }) =>
   });
 
   return (
-    <section id="branches" className="py-20 md:py-28 bg-white border-b border-black/[0.06]">
+    <section id="branches" className="py-20 md:py-28 bg-transparent border-b border-black/[0.06]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
@@ -76,7 +78,7 @@ export const BranchExplorer: React.FC<BranchExplorerProps> = ({ onAskAstra }) =>
           {filteredBranches.map((branch) => (
             <div
               key={branch.id}
-              className="bg-[#F5F5F7] rounded-3xl p-6 sm:p-7 border border-black/[0.06] hover:border-black/[0.12] transition-all duration-300 hover:shadow-lg hover:shadow-black/[0.03] flex flex-col justify-between group"
+              className="bg-white/80 backdrop-blur-md rounded-3xl p-6 sm:p-7 border border-black/[0.06] hover:border-black/[0.12] transition-all duration-300 hover:shadow-lg hover:shadow-black/[0.03] flex flex-col justify-between group"
             >
               <div>
                 {/* Branch Code & Badge Header */}
@@ -246,19 +248,19 @@ export const BranchExplorer: React.FC<BranchExplorerProps> = ({ onAskAstra }) =>
                     </ul>
                   </div>
 
-                  {/* Astra Quick Questions */}
+                  {/* Monday Quick Questions */}
                   <div className="p-4 rounded-2xl bg-blue-50/50 border border-blue-100 space-y-2">
                     <p className="text-xs font-bold text-[#0071E3] flex items-center gap-1.5">
-                      <Sparkles className="w-3.5 h-3.5" />
-                      <span>Ask Astra about {selectedBranch.name}:</span>
+                      <Sparkles className="w-3.5 h-3.5 text-amber-500" />
+                      <span>Ask Monday about {selectedBranch.name}:</span>
                     </p>
                     <div className="flex flex-col gap-1.5">
-                      {selectedBranch.questionsForAstra.map((q, qIdx) => (
+                      {(selectedBranch.questionsForMonday || selectedBranch.questionsForAstra || []).map((q, qIdx) => (
                         <button
                           key={qIdx}
                           onClick={() => {
                             setSelectedBranch(null);
-                            onAskAstra(q);
+                            ask(q);
                           }}
                           className="text-left text-xs text-[#1D1D1F] hover:text-[#0071E3] hover:underline flex items-center justify-between py-1 group"
                         >

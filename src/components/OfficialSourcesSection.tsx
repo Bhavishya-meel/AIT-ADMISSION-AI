@@ -4,7 +4,7 @@ import { OFFICIAL_SOURCES } from '../data/sourceLinks';
 
 export const OfficialSourcesSection: React.FC = () => {
   return (
-    <section id="sources" className="py-20 md:py-28 bg-white border-b border-black/[0.06]">
+    <section id="sources" className="py-20 md:py-28 bg-transparent border-b border-black/[0.06]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-14 md:mb-18">
@@ -18,7 +18,7 @@ export const OfficialSourcesSection: React.FC = () => {
             Official Resources & Verification Center
           </h2>
           <p className="mt-4 text-base sm:text-lg text-[#6E6E73] leading-relaxed">
-            All guidance provided by Astra is strictly grounded in official publications from the Army Institute of Technology, Pune, and the National Testing Agency.
+            All guidance provided by Monday is strictly grounded in official publications from the Army Institute of Technology, Pune, and the National Testing Agency.
           </p>
         </div>
 
@@ -27,7 +27,7 @@ export const OfficialSourcesSection: React.FC = () => {
           {OFFICIAL_SOURCES.map((source) => (
             <div
               key={source.id}
-              className="bg-[#F5F5F7] rounded-3xl p-6 sm:p-7 border border-black/[0.06] hover:border-black/[0.12] transition-all duration-300 flex flex-col justify-between group shadow-2xs hover:shadow-md"
+              className="bg-white/85 backdrop-blur-md rounded-3xl p-6 sm:p-7 border border-black/[0.06] hover:border-black/[0.12] transition-all duration-300 flex flex-col justify-between group shadow-2xs hover:shadow-md"
             >
               <div>
                 {/* Badge & Year Status */}
@@ -77,7 +77,7 @@ export const OfficialSourcesSection: React.FC = () => {
         </div>
 
         {/* Advisory Trust Note */}
-        <div className="mt-12 p-5 sm:p-6 rounded-3xl bg-[#F5F5F7] border border-black/[0.06] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div className="mt-12 p-5 sm:p-6 rounded-3xl bg-white/85 backdrop-blur-md border border-black/[0.06] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div className="flex items-start gap-3">
             <AlertCircle className="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5" />
             <div className="text-xs sm:text-[13px] text-[#3A3A3C] leading-relaxed">

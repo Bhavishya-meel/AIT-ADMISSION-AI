@@ -6,17 +6,28 @@ import { BranchExplorer } from './components/BranchExplorer';
 import { EligibilityWizard } from './components/EligibilityWizard';
 import { FAQSection } from './components/FAQSection';
 import { OfficialSourcesSection } from './components/OfficialSourcesSection';
-import { MeetAstraSection } from './components/MeetAstraSection';
+import { MeetMondaySection } from './components/MeetMondaySection';
 import { ClosingCTA } from './components/ClosingCTA';
 import { Footer } from './components/Footer';
 import { ChatDrawer } from './components/ChatDrawer';
+import { BackgroundEffects } from './components/BackgroundEffects';
 import { useChat } from './hooks/useChat';
 import { Sparkles } from 'lucide-react';
 
 export function App() {
   const [activeSection, setActiveSection] = useState('hero');
   const [isChatOpen, setIsChatOpen] = useState(false);
-  const { messages, isTyping, sendMessage, clearChat } = useChat();
+  const {
+    messages,
+    isTyping,
+    sendMessage,
+    clearChat,
+    apiKey,
+    updateApiKey,
+    model,
+    updateModel,
+    hasChatGPT,
+  } = useChat();
 
   const handleOpenChat = (initialPrompt?: string) => {
     setIsChatOpen(true);
@@ -70,7 +81,10 @@ export function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#F5F5F7] text-[#1D1D1F] flex flex-col font-sans selection:bg-[#0071E3] selection:text-white">
+    <div className="min-h-screen bg-[#F5F5F7] text-[#1D1D1F] flex flex-col font-sans selection:bg-[#0071E3] selection:text-white relative">
+      {/* Background Translucent AIT Pune Crest & Interactive Particle System */}
+      <BackgroundEffects />
+
       {/* Sticky Navigation Bar */}
       <Navbar
         onOpenChat={() => handleOpenChat()}
@@ -79,21 +93,21 @@ export function App() {
       />
 
       {/* Main Content Sections */}
-      <main className="flex-1">
+      <main className="flex-1 relative z-10">
         <HeroSection
           onOpenChat={handleOpenChat}
           onNavigate={scrollToSection}
         />
 
-        <AdmissionJourney onAskAstra={handleOpenChat} />
+        <AdmissionJourney onAskMonday={handleOpenChat} onAskAstra={handleOpenChat} />
 
-        <BranchExplorer onAskAstra={handleOpenChat} />
+        <BranchExplorer onAskMonday={handleOpenChat} onAskAstra={handleOpenChat} />
 
-        <EligibilityWizard onAskAstra={handleOpenChat} />
+        <EligibilityWizard onAskMonday={handleOpenChat} onAskAstra={handleOpenChat} />
 
-        <MeetAstraSection onOpenChat={handleOpenChat} />
+        <MeetMondaySection onOpenChat={handleOpenChat} />
 
-        <FAQSection onAskAstra={handleOpenChat} />
+        <FAQSection onAskMonday={handleOpenChat} onAskAstra={handleOpenChat} />
 
         <OfficialSourcesSection />
 
@@ -104,19 +118,19 @@ export function App() {
       <Footer onNavigate={scrollToSection} />
 
       {/* Persistent Floating Chat Trigger (FAB) */}
-      <div className="fixed bottom-6 right-6 z-30">
+      <div className="fixed bottom-6 right-6 z-40">
         <button
           onClick={() => handleOpenChat()}
           className="group flex items-center gap-2.5 px-4 py-3 rounded-full bg-[#0071E3] text-white shadow-lg shadow-blue-500/30 hover:bg-[#0077ED] active:scale-95 transition-all duration-200 border border-white/20"
-          aria-label="Ask Astra AI admission assistant"
+          aria-label="Ask Monday AI admission assistant"
           id="floating-chat-trigger"
         >
           <div className="relative">
-            <Sparkles className="w-5 h-5 text-sky-200 group-hover:rotate-12 transition-transform" />
+            <Sparkles className="w-5 h-5 text-amber-200 group-hover:rotate-12 transition-transform" />
             <span className="absolute -top-1 -right-1 w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
           </div>
           <span className="text-xs sm:text-sm font-semibold tracking-tight pr-1">
-            Ask Astra
+            Ask Monday
           </span>
         </button>
       </div>
@@ -129,6 +143,11 @@ export function App() {
         isTyping={isTyping}
         onSendMessage={sendMessage}
         onClearChat={clearChat}
+        apiKey={apiKey}
+        onUpdateApiKey={updateApiKey}
+        model={model}
+        onUpdateModel={updateModel}
+        hasChatGPT={hasChatGPT}
       />
     </div>
   );

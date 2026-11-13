@@ -7,7 +7,7 @@ interface ClosingCTAProps {
 
 export const ClosingCTA: React.FC<ClosingCTAProps> = ({ onOpenChat }) => {
   return (
-    <section className="py-20 md:py-28 bg-white border-b border-black/[0.06] relative overflow-hidden text-center">
+    <section className="py-20 md:py-28 bg-transparent border-b border-black/[0.06] relative overflow-hidden text-center">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-[#1D1D1F] leading-tight">
           Every big journey begins with clarity.

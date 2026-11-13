@@ -10,7 +10,7 @@ interface ChatInputProps {
 export const ChatInput: React.FC<ChatInputProps> = ({
   onSendMessage,
   disabled = false,
-  placeholder = 'Ask Astra anything about AIT eligibility, cutoffs, documents, branches...',
+  placeholder = 'Ask Monday anything about AIT eligibility, cutoffs, documents, branches...',
 }) => {
   const [text, setText] = useState('');
   const textareaRef = useRef<HTMLTextAreaElement>(null);

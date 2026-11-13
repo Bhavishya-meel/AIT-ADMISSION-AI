@@ -12,7 +12,8 @@ export interface EngineeringBranch {
   careerPathways: string[];
   strengthsAtAIT: string[];
   officialUrl: string;
-  questionsForAstra: string[];
+  questionsForMonday?: string[];
+  questionsForAstra?: string[];
 }
 
 export const ENGINEERING_BRANCHES: EngineeringBranch[] = [
