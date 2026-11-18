@@ -47,7 +47,8 @@ export function useChat() {
   const [isTyping, setIsTyping] = useState(false);
   const [apiKey, setApiKey] = useState<string>(() => getOpenAIApiKey());
   const [model, setModel] = useState<string>(() => getOpenAIModel());
-  const hasChatGPT = Boolean(apiKey && apiKey.trim());
+  const hasCustomKey = Boolean(apiKey && apiKey.trim());
+  const hasChatGPT = true; // ChatGPT is integrated and active by default
 
   useEffect(() => {
     try {
@@ -81,38 +82,33 @@ export function useChat() {
       setMessages((prev) => [...prev, userMessage]);
       setIsTyping(true);
 
-      const currentKey = getOpenAIApiKey();
+      // 1. Attempt live ChatGPT (using personal key if available or built-in engine)
+      try {
+        const history = messages.map((m) => ({
+          sender: m.sender,
+          content: m.content,
+        }));
 
-      if (currentKey && currentKey.trim()) {
-        try {
-          // Format conversation history for ChatGPT
-          const history = messages.map((m) => ({
-            sender: m.sender,
-            content: m.content,
-          }));
+        const aiResp = await callChatGPT(text, history);
 
-          const aiResp = await callChatGPT(text, history);
+        const assistantMessage: ChatMessage = {
+          id: `monday-gpt-${Date.now()}-${Math.random().toString(36).substring(2, 7)}`,
+          sender: 'assistant',
+          content: aiResp.content,
+          timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+          sources: aiResp.sources,
+          suggestedFollowUps: aiResp.suggestedFollowUps,
+          provider: 'chatgpt',
+        };
 
-          const assistantMessage: ChatMessage = {
-            id: `monday-gpt-${Date.now()}-${Math.random().toString(36).substring(2, 7)}`,
-            sender: 'assistant',
-            content: aiResp.content,
-            timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
-            sources: aiResp.sources,
-            suggestedFollowUps: aiResp.suggestedFollowUps,
-            provider: 'chatgpt',
-          };
-
-          setMessages((prev) => [...prev, assistantMessage]);
-          setIsTyping(false);
-          return;
-        } catch (err: any) {
-          console.warn('ChatGPT API call encountered an issue, falling back to Monday local engine:', err);
-          // Auto fallback to Monday's upgraded local intelligence
-        }
+        setMessages((prev) => [...prev, assistantMessage]);
+        setIsTyping(false);
+        return;
+      } catch (err: any) {
+        console.warn('Live ChatGPT service encountered an issue, falling back to local AIT engine:', err);
       }
 
-      // Monday's upgraded local intelligence engine
+      // 2. Offline Fallback: Monday's rich local intelligence engine
       setTimeout(() => {
         const response = generateMondayResponse(text);
 
@@ -128,7 +124,7 @@ export function useChat() {
 
         setMessages((prev) => [...prev, assistantMessage]);
         setIsTyping(false);
-      }, 550);
+      }, 500);
     },
     [messages]
   );
@@ -152,5 +148,6 @@ export function useChat() {
     model,
     updateModel,
     hasChatGPT,
+    hasCustomKey,
   };
 }

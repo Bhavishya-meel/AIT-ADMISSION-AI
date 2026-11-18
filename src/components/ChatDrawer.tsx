@@ -27,6 +27,7 @@ interface ChatDrawerProps {
   model?: string;
   onUpdateModel?: (model: string) => void;
   hasChatGPT?: boolean;
+  hasCustomKey?: boolean;
 }
 
 export const ChatDrawer: React.FC<ChatDrawerProps> = ({
@@ -40,7 +41,8 @@ export const ChatDrawer: React.FC<ChatDrawerProps> = ({
   onUpdateApiKey,
   model = 'gpt-4o-mini',
   onUpdateModel,
-  hasChatGPT = false,
+  hasChatGPT = true,
+  hasCustomKey = false,
 }) => {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [showSettings, setShowSettings] = useState(false);
@@ -199,13 +201,13 @@ export const ChatDrawer: React.FC<ChatDrawerProps> = ({
                           ChatGPT Integration (OpenAI)
                         </h4>
                       </div>
-                      <span className="text-[11px] text-[#86868B]">
-                        {hasChatGPT ? 'Connected' : 'Optional (Local Engine active)'}
+                      <span className="text-[11px] font-semibold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">
+                        {hasCustomKey ? 'Personal Key Active' : 'ChatGPT Active'}
                       </span>
                     </div>
 
                     <p className="text-xs text-[#6E6E73] leading-relaxed">
-                      Connect your OpenAI API key to enable live ChatGPT responses equipped with Monday's comprehensive AIT Pune knowledge base.
+                      Monday is directly integrated with ChatGPT to answer any question asked. You can optionally enter your personal OpenAI API key below for custom models and dedicated quota.
                     </p>
 
                     <div>

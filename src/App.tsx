@@ -27,6 +27,7 @@ export function App() {
     model,
     updateModel,
     hasChatGPT,
+    hasCustomKey,
   } = useChat();
 
   const handleOpenChat = (initialPrompt?: string) => {
@@ -148,6 +149,7 @@ export function App() {
         model={model}
         onUpdateModel={updateModel}
         hasChatGPT={hasChatGPT}
+        hasCustomKey={hasCustomKey}
       />
     </div>
   );
